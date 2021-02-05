@@ -18,7 +18,9 @@ public class LambdasApp {
 		// lambda5(); //imprimeix llista Strings
 		// lambda6(); //imprimeix llista Strings amb reference
 
+		// Nivell1_Fase2
 
+		lambda7(); // utiliza lambda en un mètode abstracte no definit
 	}
 
 	// filtrar per 2 condicions "AND"
@@ -96,6 +98,17 @@ public class LambdasApp {
 		list1.stream().forEach(System.out::println);
 
 	}
+
+	// utiliza lambda en un mètode abstracte sense paràmetre
+	public static void lambda7() {
+
+		INumeroPI pi = ()->3.1415;
+		
+		
+		System.out.println(pi.getPiValue());
+
+	}
+	
 
 
 }
