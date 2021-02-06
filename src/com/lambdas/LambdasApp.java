@@ -5,24 +5,31 @@ import java.util.List;
 
 import java.util.stream.Collectors;
 
+import javax.swing.plaf.basic.BasicSplitPaneUI.BasicHorizontalLayoutManager;
+
 public class LambdasApp {
 
 	public static void main(String[] arg) {
 
 		// Nivell1_Fase1
 
-		// lambda1(); //filtrar per 2 condicions "AND"
-		// lambda2(); //fer acció per 2 condicions
-		// lambda3(); //filtrar per 1 condicions
-		// lambda4(); //filtrar per 2 condicions "OR"
-		// lambda5(); //imprimeix llista Strings
-		// lambda6(); //imprimeix llista Strings amb reference
+		//lambda1(); //filtrar per 2 condicions "AND"
+		//lambda2(); //fer acció per 2 condicions
+		//lambda3(); //filtrar per 1 condicions
+		//lambda4(); //filtrar per 2 condicions "OR"
+		//lambda5(); //imprimeix llista Strings
+		//lambda6(); //imprimeix llista Strings amb reference
 
 		// Nivell1_Fase2
 
-		lambda7(); // utiliza lambda en un mètode abstracte no definit
+		//lambda7(); 	// utiliza lambda en un mètode abstracte sense paràmetre
+		
+		// Nivell1_Fase3	
+		
+		lambda8(); 	// utiliza lambda en un mètode abstracte amb paràmetre
 	}
 
+	
 	// filtrar per 2 condicions "AND"
 	public static void lambda1() {
 
@@ -35,6 +42,7 @@ public class LambdasApp {
 
 	}
 
+	
 	// fer acció per 2 condicions
 	public static void lambda2() {
 
@@ -56,12 +64,17 @@ public class LambdasApp {
 
 	}
 
+	
 	// filtrar per 1 condicions
 	public static void lambda3() {
 
 		List<String> list1 = Arrays.asList("Oscar", "Adelaila", "Antonia", "Bea", "Carla");
 
-		List<String> list2 = list1.stream().filter(str -> str.toUpperCase().contains("O")).collect(Collectors.toList());
+		List<String> list2 = list1.stream()
+				.filter(str -> str.toUpperCase()	
+				.contains("O"))
+				.collect(Collectors
+				.toList());
 
 		System.out.println(list2);
 
@@ -72,7 +85,8 @@ public class LambdasApp {
 
 		List<String> list1 = Arrays.asList("Oscar", "Adelaila", "Antonia", "Bea", "Carla");
 
-		List<String> list2 = list1.stream().filter(str -> str.toUpperCase().contains("O") || str.length() > 5)
+		List<String> list2 = list1.stream()
+				.filter(str -> str.toUpperCase().contains("O") || str.length() > 5)
 				.collect(Collectors.toList());
 
 		System.out.println(list2);
@@ -109,6 +123,15 @@ public class LambdasApp {
 
 	}
 	
+	// utiliza lambda en un mètode abstracte amb paràmetre
+	public static void lambda8() {
 
+		IReverse r = (str) -> {
+			StringBuilder sb = new StringBuilder(str);
+			return sb.reverse().toString();
+		};
+
+		System.out.println(r.reverse("Hola món!"));
+	}
 
 }
