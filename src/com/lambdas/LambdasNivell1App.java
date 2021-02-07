@@ -2,12 +2,9 @@ package com.lambdas;
 
 import java.util.Arrays;
 import java.util.List;
-
 import java.util.stream.Collectors;
 
-import javax.swing.plaf.basic.BasicSplitPaneUI.BasicHorizontalLayoutManager;
-
-public class LambdasApp {
+public class LambdasNivell1App {
 
 	public static void main(String[] arg) {
 
@@ -27,9 +24,9 @@ public class LambdasApp {
 		// Nivell1_Fase3	
 		
 		lambda8(); 	// utiliza lambda en un mètode abstracte amb paràmetre
+		
 	}
 
-	
 	// filtrar per 2 condicions "AND"
 	public static void lambda1() {
 
@@ -133,5 +130,4 @@ public class LambdasApp {
 
 		System.out.println(r.reverse("Hola món!"));
 	}
-
 }
