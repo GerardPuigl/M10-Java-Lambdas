@@ -1,25 +1,33 @@
-package com.lambdas;
+package com.lambdas.main;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import com.lambdas.FunctionalInterfaces.INumeroPI;
+import com.lambdas.FunctionalInterfaces.IReverse;
 
 public class LambdasNivell1App {
 
 	public static void main(String[] arg) {
 
 		// Nivell1_Fase1
-
-		//lambda1(); //filtrar per 2 condicions "AND"
-		//lambda2(); //fer acció per 2 condicions
-		//lambda3(); //filtrar per 1 condicions
-		//lambda4(); //filtrar per 2 condicions "OR"
-		//lambda5(); //imprimeix llista Strings
-		//lambda6(); //imprimeix llista Strings amb reference
+		
+		lambda1(); //filtrar per 2 condicions "AND"
+		
+		lambda2(); //fer acció per 2 condicions
+		
+		lambda3(); //filtrar per 1 condicions
+		
+		lambda4(); //filtrar per 2 condicions "OR"
+		
+		lambda5(); //imprimeix llista Strings
+		
+		lambda6(); //imprimeix llista Strings amb reference
 
 		// Nivell1_Fase2
 
-		//lambda7(); 	// utiliza lambda en un mètode abstracte sense paràmetre
+		lambda7(); 	// utiliza lambda en un mètode abstracte sense paràmetre
 		
 		// Nivell1_Fase3	
 		
@@ -35,7 +43,8 @@ public class LambdasNivell1App {
 		List<String> list2 = list1.stream().filter(str -> str.contains("A") && str.length() == 3)
 				.collect(Collectors.toList());
 
-		System.out.println(list2);
+		System.out.println("\nArray original:\n"+list1);
+		System.out.println("\nParaules iniciades amb A i que tenen 3 lletres:\n"+list2);
 
 	}
 
@@ -57,7 +66,9 @@ public class LambdasNivell1App {
 		});
 
 		sb.setLength(sb.length() - 1);
-		System.out.println(sb);
+		
+		System.out.println("\nArray original:\n"+list1);
+		System.out.println("\nAfegir 'e' als nombres senars i 'o' als nombres parells: \n"+sb);
 
 	}
 
@@ -73,7 +84,9 @@ public class LambdasNivell1App {
 				.collect(Collectors
 				.toList());
 
-		System.out.println(list2);
+		System.out.println("\nArray original:\n"+list1);
+		
+		System.out.println("\nRetorna totes les paraules que tenen la paraula 'o'\n"+list2);
 
 	}
 
@@ -86,7 +99,9 @@ public class LambdasNivell1App {
 				.filter(str -> str.toUpperCase().contains("O") || str.length() > 5)
 				.collect(Collectors.toList());
 
-		System.out.println(list2);
+		System.out.println("\nArray original:\n"+list1);
+		
+		System.out.println("\nRetorna totes les paraules que tenen la paraula 'o' o més de 5 lletres\n"+list2);
 
 	}
 
@@ -96,6 +111,9 @@ public class LambdasNivell1App {
 		List<String> list1 = Arrays.asList("Gener", "Febrer", "Març", "Abril", "Maig", "Juny", "Juliol", "Agost",
 				"Setembre", "Octubre", "Novembre", "Desembre");
 
+		System.out.println("\nArray original:\n"+list1
+				+"\n\nImprimeix els mesos mitjançant lambda:");
+		
 		list1.stream().forEach(str -> System.out.println(str));
 
 	}
@@ -106,6 +124,9 @@ public class LambdasNivell1App {
 		List<String> list1 = Arrays.asList("Gener", "Febrer", "Març", "Abril", "Maig", "Juny", "Juliol", "Agost",
 				"Setembre", "Octubre", "Novembre", "Desembre");
 
+		System.out.println("\nArray original:\n"+list1
+				+"\n\nImprimeix els mesos mitjançant mètode réference:");
+		
 		list1.stream().forEach(System.out::println);
 
 	}
@@ -115,8 +136,8 @@ public class LambdasNivell1App {
 
 		INumeroPI pi = ()->3.1415;
 		
-		
-		System.out.println(pi.getPiValue());
+		System.out.println("\nInjectar mitjançant lambda un mètode a una interfície funcional que no rep paràmetre:"
+				+ "\nReusltat: " + pi.getPiValue());
 
 	}
 	
@@ -128,6 +149,7 @@ public class LambdasNivell1App {
 			return sb.reverse().toString();
 		};
 
-		System.out.println(r.reverse("Hola món!"));
+		System.out.println("\nInjectar mitjançant lambda un mètode a una interfice funcional que rep un paràmetre:"
+				+ "\nReusltat: "+r.reverse("Hola món!"));
 	}
 }

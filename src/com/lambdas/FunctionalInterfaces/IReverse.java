@@ -1,4 +1,4 @@
-package com.lambdas;
+package com.lambdas.FunctionalInterfaces;
 
 @FunctionalInterface
 public interface IReverse {

@@ -1,11 +1,12 @@
-package com.lambdas;
+package com.lambdas.main;
 
 import java.util.Arrays;
 import java.util.Comparator;
-
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
+import com.lambdas.FunctionalInterfaces.IOperacio;
 
 public class LambdasNivell2App {
 
@@ -17,52 +18,27 @@ public class LambdasNivell2App {
 		String[] array = { "Llimones", "20", "Pomes", "5", "Cireres", "3", "Alvocats", "4", "Enciams" };
 
 		System.out.println("Array original:\n"+ Arrays.toString(array) +"\n");
-		
-		
-		// ordenar per longitud (de menor a major)
-
-		sortByLength(array);
 
 		
-		// ordenar per longitud (de major a menor
+		sortByLength(array); 			// Ordenar per longitud (de menor a major)
 
-		sortByLengthRevesed(array);
+		sortByLengthReversed(array); 	// Ordenar per longitud (de major a menor)
 
-		
-		// Ordenar Strings per orde alfabètic
+		sortAlphabetically(array); 		// Ordenar Strings per orde alfabètic
 
-		sortAlphabetically(array);
+		sortFirtsE(array); 				// Les cadenes que contenen "e" primer, tota la resta en segon lloc
 
-		
-		// Les cadenes que contenen "e" primer, tota la resta en segon lloc.
+		changeAto4(array); 				// Modifica tots els elements de la matriu per canviar els caracters “a” a “4”
 
-		sortFirtsE(array);
+		filterNumbers(array); 			// Mostra només els elements que siguin 100% numerics
 
-		
-		// Modifica tots els elements de la matriu per canviar els caracters “a” a “4”
+		operationsWithFunctionalInterface(); // Operaicions mitjançant lambdes amb Interficie Funcional
 
-		changeAto4(array);
-
-		
-		// Mostra només els elements que siguin 100% numerics.
-
-		filterNumbers(array);
-
-		
-		// injecta mitjançant una lambda el cos del mètode a una interficie,
-		// de manera que pugis transformar la operació a una
-		// suma, resta, multiplicació i divisio.
-
-		operationsWithFunctionalInterface();
-
-		
-		// bonus: operacions suma, resta, multiplicació i divisio
-		// sobre una array amb Streams
-
-		operationsWithStream(array);
+		operationsWithStream(array); 	// bonus: operacions mitjançant lambdes a una array amb Streams
 
 	}
 
+	// Ordenar per longitud (de menor a major)
 	public static void sortByLength(String[] array) {
 			
 		List<String> list= Stream.of(array)
@@ -72,7 +48,8 @@ public class LambdasNivell2App {
 		System.out.println("Ordenar Strings per longitud (de menor a major):\n" + list +"\n");
 	}
 	
-	public static void sortByLengthRevesed(String[] array) {
+	// Ordenar per longitud (de major a menor)
+	public static void sortByLengthReversed(String[] array) {
 		
 		List<String> list= Stream.of(array)
 				.sorted(Comparator.comparing(String::length).reversed())
@@ -82,6 +59,7 @@ public class LambdasNivell2App {
 
 	}
 	
+	// Ordenar Strings per orde alfabètic
 	public static void sortAlphabetically(String[] array) {
 		
 		List<String> list= Stream.of(array)
@@ -92,6 +70,7 @@ public class LambdasNivell2App {
 
 	}
 
+	// Les cadenes que contenen "e" primer, tota la resta en segon lloc
 	public static void sortFirtsE(String[] array) {
 		
 		List<String> list= Stream.of(array)
@@ -102,6 +81,7 @@ public class LambdasNivell2App {
 
 	}
 	
+	// Modifica tots els elements de la matriu per canviar els caracters “a” a “4”
 	public static void changeAto4(String[] array) {
 		
 		List<String> list= Stream.of(array)
@@ -112,6 +92,7 @@ public class LambdasNivell2App {
 
 	}
 	
+	// Mostra només els elements que siguin 100% numerics
 	private static void filterNumbers(String[] array) {
 		List<String> list= Stream.of(array)
 				.filter(s -> s.matches("[0-9]+"))
@@ -121,6 +102,7 @@ public class LambdasNivell2App {
 
 	}
 
+	// Operaicions mitjançant lambdes i Interficie Funcional
 	public static void operationsWithFunctionalInterface() {
 		
 		System.out.println("Operacions mitjançant lambdes sorbe una inteficie funcional:\n");
@@ -145,8 +127,7 @@ public class LambdasNivell2App {
 		
 	}
 	
-	
-	
+	// bonus: operacions mitjançant lambdes a una array amb Streams	
 	public static void operationsWithStream(String[] array) {
 		
 		System.out.println("\nBonus: Operacions mitjançant Stream i lambdes sorbe una array:\n");

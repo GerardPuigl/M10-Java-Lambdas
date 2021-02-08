@@ -1,4 +1,4 @@
-package com.lambdas;
+package com.lambdas.main;
 
 import java.util.Comparator;
 import java.util.HashMap;
@@ -14,13 +14,21 @@ public class HashMapWithStreamsApp {
 		
 		list1 = Map.of("Llimones",223,"Pomes",53,"Cireres",134,"Alvocats",65);
 		
-		// Nivell2
+		// Bonus:
+		
+		//3 primeres demandes del nivell2 amb un HashMap
 				
 		list1 = sortByKeyLength(list1);
+		
+		System.out.println("Ordenar Strings per longitud (de menor a major):\n" + list1 +"\n");
+		
 		list1 = sortByKeyLengthReversed(list1);
+		
+		System.out.println("Ordenar Strings per longitud (de menor a major):\n" + list1 +"\n");
+
 		list1 = sortyByKeyAlphabetically(list1);
 		
-		System.out.println(list1);
+		System.out.println("Ordenar Strings per orde alfabètic:\n" + list1 +"\n");
 	}
 
 
